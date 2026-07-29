@@ -1,49 +1,45 @@
-# emailed.chat 📬
+# emailed.chat
 
-**Email, reimagined as an iMessage thread.**
+Your email as a chat. This is my main product.
 
-> Showcase repo — the concept and what it taught me. Source is private.
+[emailed.chat](https://emailed.chat)
 
----
+Write-up, not source code.
 
-## The idea
+## What it is
 
-Email clients have spent twenty years adding features to a format nobody enjoys. Meanwhile the interface everyone actually likes — a chat thread — has been sitting right there.
+Email in a thread that looks and works like iMessage. The three things you actually do with email are mapped to gestures you already know:
 
-emailed.chat pipes your inbox into a message thread and maps the three things you actually do to email onto gestures you already know:
-
-| gesture | what it does |
+| gesture | what happens |
 |---|---|
-| 👍 the bubble | archive it |
-| 👎 the bubble | unsubscribe |
-| reply to the bubble | reply to the email |
+| thumbs up | archive it |
+| thumbs down | unsubscribe |
+| reply | reply to the email |
 
-That's the entire interface. No folders, no snooze, no split pane, no unread badge you can't clear.
+That's the whole interface. No folders, no snooze, no split pane, no unread count you can never clear.
 
-## Why it works
+## Why I built it this way
 
-**Email is already a chat protocol** wearing a memo costume. Threading, quoting, reply-all — the primitives were always conversational. The client is what made it feel like paperwork.
+Email clients have spent twenty years adding features to a format nobody enjoys. The interface people actually like, a chat thread, was sitting right there the whole time.
 
-**Tapbacks collapse a three-step decision into one.** Archive-or-unsubscribe is the actual triage question for 90% of a modern inbox, and both are one gesture away instead of a menu, a swipe, a scroll to the footer, and a confirmation page.
+Two things I felt strongly about:
 
-**Unsubscribe as a first-class verb.** Every client treats it as a hyperlink buried in 6pt grey text. Making it a thumbs-down is a small change that shifts the power balance of your inbox.
+**Unsubscribe should be one tap.** Every email client treats it as a link buried in tiny grey text at the bottom. Making it a thumbs down changes who's in charge of your inbox.
+
+**Fewer controls, not more.** Every time I wanted to add a snooze or a label or a star, the honest question was whether it's useful or whether every other client just has one. Usually the second.
 
 ## The hard parts
 
-**Rendering.** HTML email is a hostile format. Turning a six-column marketing template into something that reads as a chat bubble is the majority of the work, and there's no clean answer — just a long tail of heuristics about what to keep.
+**Making emails look like messages.** HTML email is a mess. Turning a six column marketing template into something that reads as a chat bubble is most of the work, and there's no clean solution, just a lot of rules about what to keep and what to throw away.
 
-**Threading.** Chat threads are linear. Email threads are a tree with forks, drops, and reply-alls. Flattening one into the other loses information; the question is which information nobody misses.
+**Threads.** A chat is a straight line. An email thread is a tree with forks and reply-alls. You lose something flattening one into the other, and the job is picking what nobody will miss.
 
-**Unsubscribe is not a standard.** Some senders honour the header, some hide a link, some want a login. Making one gesture mean "make this stop" across all of them is unglamorous plumbing.
+**Unsubscribe isn't a standard.** Some senders respect the header, some hide a link, some make you log in. Getting one gesture to mean "stop" across all of them is unglamorous work, and it's where most of the value is.
 
 ## What I learned
 
-**Constraint is the feature.** Every time I wanted to add a control — a snooze, a label, a star — the honest question was "does this exist because it's useful, or because every other client has it?" Almost always the second.
-
-**Familiar gestures buy enormous goodwill.** Zero onboarding needed. Everyone already knows what a thumbs-up does.
-
-**The unsexy layer is where the product lives.** The concept takes one sentence. The value is entirely in how well the rendering and unsubscribe plumbing works, and neither is demoable.
+The idea takes one sentence. Everything that makes it good is in the boring layer underneath, and none of that demos well.
 
 ---
 
-Built by [Milo](https://hey.milo.gg)
+Built by [Milo](https://milo.gg)
